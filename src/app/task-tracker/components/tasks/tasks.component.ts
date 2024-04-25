@@ -43,9 +43,9 @@ export class TasksComponent implements OnInit {
 
   // Method to delete a task
   deleteTask(task: Task) {
-    // Decrement task count
-    this.taskService.changeTaskCount(ACTION.Decrement);
-    // Delete task from server and update tasks array
+    // // Decrement task count
+    // this.taskService.changeTaskCount(ACTION.Decrement);
+    // // Delete task from server and update tasks array
     this.taskService
       .deleteTask(task)
       .subscribe(
@@ -63,10 +63,6 @@ export class TasksComponent implements OnInit {
 
   // Method to add a new task
   addTask(task: Task) {
-    // Increment task count
-    this.taskService.changeTaskCount(ACTION.Increment);
-    // Assign task ID and add task to server
-    task.id = this.count;
     this.taskService.addTask(task).subscribe(() => this.tasks.push(task));
   }
 }

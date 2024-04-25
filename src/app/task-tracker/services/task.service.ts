@@ -16,7 +16,7 @@ const httpOptions = {
 })
 export class TaskService {
   // API URL for tasks
-  private apiUrl = 'http://localhost:5000/tasks';
+  private apiUrl = 'https://localhost:7103/api/v1/Task';
 
   // Counter for the number of tasks
   private taskCount: number = 0;
@@ -61,6 +61,7 @@ export class TaskService {
 
   // Method to update a task's reminder status
   updateTaskReminder(task: Task): Observable<Task> {
+    console.log('Update id : ' + task.id);
     const url = `${this.apiUrl}/${task.id}`;
     return this.http.put<Task>(url, task, httpOptions);
   }
